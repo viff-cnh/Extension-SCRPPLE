@@ -1,6 +1,8 @@
 //  Copyright 2006-2010 USFS Portland State University, Northern Research Station, University of Wisconsin
 //  Authors:  Robert M. Scheller, Brian R. Miranda 
 
+//// NECN will take in carbon dead to calculate FineFuels
+
 using Landis.Library.AgeOnlyCohorts;
 using Landis.SpatialModeling;
 using Landis.Library.Climate;
@@ -175,10 +177,11 @@ namespace Landis.Extension.Scrapple
             
             // Get the active sites from the landscape and shuffle them 
             List<ActiveSite> activeSites = PlugIn.ModelCore.Landscape.ToList();
-
             List<ActiveSite> shuffledAccidentalFireSites = Shuffle(activeSites, SiteVars.AccidentalFireWeight);
+            
             activeSites = PlugIn.ModelCore.Landscape.ToList();
             List<ActiveSite> shuffledLightningFireSites = Shuffle(activeSites, SiteVars.LightningFireWeight);
+            
             activeSites = PlugIn.ModelCore.Landscape.ToList();
             List<ActiveSite> shuffledRxFireSites = Shuffle(activeSites, SiteVars.RxFireWeight);
 
@@ -395,6 +398,7 @@ namespace Landis.Extension.Scrapple
         //---------------------------------------------------------------------
 
         // Detemines the number of cells a given ignition can spread to
+        // Windspeed, wind direction, fireweatherindex, fuels
         private static int SpreadLength(double fireWeatherIndex)
         {
             return 5;
@@ -405,6 +409,7 @@ namespace Landis.Extension.Scrapple
         // Ignites and Spreads a fire
         private static void Ignite(Ignition ignitionType, List<ActiveSite> shuffledFireSites, int day, double fireWeatherIndex)
         {
+
             
             while ( shuffledFireSites.Count() > 0 && SiteVars.Disturbed[shuffledFireSites.First()] == true )
             {

@@ -217,10 +217,9 @@ namespace Landis.Extension.Scrapple
             */
             return fireEvent;
         }
-
         
-
         //---------------------------------------------------------------------
+
         public void Spread(int currentTime, int day)
         {
             //First, check for fire overlap:
@@ -238,6 +237,7 @@ namespace Landis.Extension.Scrapple
                 if (neighbors.Count > 0)
                 {
                     //VS: for now pick random site to spread to
+                    // function --> windspeed, direction, FWI, FineFuels (0->1), Landscape azimuth
                     int r = rnd.Next(neighbors.Count);
                     Site nextSite = neighbors[r];
 

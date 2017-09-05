@@ -1,5 +1,13 @@
 LandisData "Climate Config"				
 		
+>> ClimateTimeSeries			Monthly_AverageAllYears
+>> ClimateFile				PRISM_data_AFRI_4.18.13_backup.csv
+>> ClimateFileFormat			Monthly_Temp-C_Precip-mmMonth
+
+>> SpinUpClimateTimeSeries			Monthly_AverageAllYears
+>> SpinUpClimateFile			PRISM_data_AFRI_4.18.13_backup.csv
+>> SpinUpClimateFileFormat			Monthly_Temp-C_Precip-mmMonth
+
 ClimateTimeSeries			Daily_AverageAllYears
 ClimateFile				LTB_1992_2010_fix.csv
 ClimateFileFormat			Daily_Temp-C_Precip-mmday
