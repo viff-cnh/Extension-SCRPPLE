@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Landis.Library.Metadata;
-using Landis.Utilities;
+using Edu.Wisc.Forest.Flel.Util;
 using Landis.Core;
 
 namespace Landis.Extension.Scrapple
